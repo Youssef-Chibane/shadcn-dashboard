@@ -13,16 +13,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
+import { SidebarTrigger } from "./ui/sidebar";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
   return (
     <nav className="p-4 flex items-center justify-between">
       {/* left */}
-      collapseButton
+      <SidebarTrigger />
       {/* right */}
       <div className="flex items-center gap-4">
         <Link href="/">Dashboard</Link>
+        {/* theme toggle menu */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
@@ -44,6 +46,7 @@ const Navbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
 
+        {/* user dropdown menu */}
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
